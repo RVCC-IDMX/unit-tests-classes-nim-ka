@@ -50,7 +50,7 @@
  * @property {number} side
  */
 
-class Square extends Rectangle {
+class Square extends (0, require)('./rectangle').Rectangle {
   /**
    * @constructor
    * @param {number} side - the length of a side
@@ -58,13 +58,8 @@ class Square extends Rectangle {
    * hint: this constructor gets 1 number as an argument
    * and calls the parent class constructor with height and width
    */
-
-  /**
-   * @constructor
-   * @param {number} side - the length of a side of the square
-   */
   constructor(side) {
-    // write your code here
+    super(side, side);
   }
 
   /**
@@ -72,7 +67,7 @@ class Square extends Rectangle {
    * @returns {number} the side length
    */
   getSide() {
-    // write your code here
+    return this.perimeter() / 4;
   }
 }
 

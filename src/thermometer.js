@@ -33,49 +33,7 @@ class Thermometer {
    * @param {number} celsius
    */
   constructor(celsius) {
-    // write your code here
-  }
-
-  /*  -------- celsius -------------------*/
-  /**
-   * @getter celsius
-   * @returns {number}
-   * @memberof Thermometer
-   * @description - returns the celsius temperature
-   * */
-  get celsius() {
-    // write your code here
-  }
-
-  /**
-   * @setter celsius
-   * @param {number} celsius
-   * @memberof Thermometer
-   * @description - sets the celsius temperature
-   */
-  set celsius(tempCelsius) {
-    // write your code here
-  }
-
-  /*  -------- kelvin -------------------*/
-  /**
-   * @getter kelvin
-   * @returns {number}
-   * @memberof Thermometer
-   * @description - returns the kelvin temperature
-   */
-  get kelvin() {
-    // write your code here
-  }
-
-  /**
-   * @setter kelvin
-   * @param {number} kelvin
-   * @memberof Thermometer
-   * @description - sets the kelvin temperature
-   */
-  set kelvin(tempKelvin) {
-    // write your code here
+    this.celsius = celsius;
   }
 
   /*  -------- fahrenheit -------------------*/
@@ -86,7 +44,7 @@ class Thermometer {
    * @description - returns the fahrenheit temperature
    */
   get fahrenheit() {
-    // write your code here
+    return this.celsius * (9 / 5) + 32;
   }
 
   /**
@@ -96,7 +54,28 @@ class Thermometer {
    * @description - sets the fahrenheit temperature
    */
   set fahrenheit(tempFahrenheit) {
-    // write your code here
+    this.celsius = (tempFahrenheit - 32) * (5 / 9);
+  }
+
+  /*  -------- kelvin -------------------*/
+  /**
+   * @getter kelvin
+   * @returns {number}
+   * @memberof Thermometer
+   * @description - returns the kelvin temperature
+   */
+  get kelvin() {
+    return this.celsius + 273.15;
+  }
+
+  /**
+   * @setter kelvin
+   * @param {number} kelvin
+   * @memberof Thermometer
+   * @description - sets the kelvin temperature
+   */
+  set kelvin(tempKelvin) {
+    this.celsius = tempKelvin - 273.15;
   }
 
   /**
@@ -114,7 +93,13 @@ class Thermometer {
    *
    */
   toString(unit) {
-    // write your code here
+    return this[{
+      F: 'fahrenheit',
+      K: 'kelvin',
+    }[unit] ?? 'celsius'] + ({
+      F: '°F',
+      K: 'K',
+    }[unit] ?? '°C');
   }
 }
 

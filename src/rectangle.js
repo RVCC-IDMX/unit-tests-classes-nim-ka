@@ -50,7 +50,7 @@
  * @property {number} width
  */
 
-class Rectangle extends Polygon {
+class Rectangle extends (0, require)('./polygon').Polygon {
   /**
    * @constructor
    * @param {number} height
@@ -64,15 +64,7 @@ class Rectangle extends Polygon {
    * the array of 4 numbers
    */
   constructor(height, width) {
-    // write your code here
-  }
-
-  /**
-   * @method isValid
-   * @returns {boolean} true if the height and width are both a number > 0
-   */
-  isValid() {
-    // write your code here
+    super([width, height, width, height]);
   }
 
   /**
@@ -82,7 +74,7 @@ class Rectangle extends Polygon {
    * otherwise return 0
    */
   area() {
-    // write your code here
+    return this.isValid() ? Math.sqrt(this.sides.reduce((a, b) => a * b)) : 0;
   }
 }
 
